@@ -149,38 +149,77 @@ gsap.to(animProps, {duration: 120, xRot: Math.PI * 2, yRot: Math.PI * 4, repeat:
 }});
 
 //skill section
-console.clear();
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, MotionPathPlugin);
-gsap.defaults({ease: "none"});
 
-gsap.set(".ball", {xPercent: -50, yPercent: -50})
 
-var tl = gsap.timeline({
-  defaults: {
-    duration: 0.05, 
-    autoAlpha: 1, 
-    scale: 2, 
-    transformOrigin: 'center', 
-    ease: "elastic(2.5, 1)"
-  }})
-.to(".ball02, .text01", {}, 0.2) 
-.to(".ball03, .text02", {}, 0.33)
-.to(".ball04, .text03", {}, 0.46)
-.to(".ball05, .text04", {},0.59)
-.to(".ball06, .text05", {},0.75)
 
-var action = gsap.timeline({defaults: {duration: 1},
-  scrollTrigger: {
-    trigger: "#svg2",
-    scrub: true,
-    start: "top center",
-    end: "bottom center"
-  }})
-.to(".ball01", {duration: 0.01, autoAlpha: 1})
-.from(".theLine", {drawSVG: 0}, 0)
-.to(".ball01", {motionPath: {path: ".theLine", alignOrigin: [0.5, 0.5]}}, 0)
-.add(tl, 0);
+
+gsap.set('.content:not(.initial)', { autoAlpha: 0 })
+
+
+var headlines = gsap.utils.toArray(".text");
+
+var totalDuration = 1000;
+var singleDuration = totalDuration / headlines.length;
+
+
+
+
+
+const lineTimeline = gsap.timeline();
+
+ScrollTrigger.create({    
+  trigger: ".pin-up",
+  start: "top top",
+  end: "+=" + totalDuration,
+  //markers: true,
+  pin: true,
+  scrub: true,
+  animation: lineTimeline,
+});
+
+lineTimeline
+.to('.sideline', { duration: 1 }, 0)
+.to('.sideline', { duration: 0.9, scaleY: 1, ease: "none" }, 0)
+
+
+
+
+
+headlines.forEach((elem, i) => {    
+  
+  const smallTimeline = gsap.timeline(); 
+    
+  const content = document.querySelector('.content-wrap');
+  const relevantContent = content.querySelector('span.content-' + i);  
+    
+  ScrollTrigger.create({    
+    
+    trigger: ".wrapper",
+        
+    start: "top -=" + ( singleDuration * i ),
+    end: "+=" + singleDuration,
+    
+    //markers: true,
+
+    animation: smallTimeline,
+    toggleActions: relevantContent.classList.contains('remaining') ? "play none play reverse" : "play reverse play reverse",
+    
+  });   
+
+  smallTimeline 
+    .to(elem,{ duration: 0.25, color: "orange", scale: 1.25, ease: 'none' }, 0) 
+    .set(relevantContent,{ autoAlpha: 1 }, 0.125)
+  ;
+ 
+});
+
+
+
+
+
+
+
 
 
 //cursor
