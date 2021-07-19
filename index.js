@@ -208,7 +208,7 @@ headlines.forEach((elem, i) => {
   });   
 
   smallTimeline 
-    .to(elem,{ duration: 0.25, color: "orange", scale: 1.25, ease: 'none' }, 0) 
+    .to(elem,{ duration: 0.25, color: "violet", scale: 1.25, ease: 'none' }, 0) 
     .set(relevantContent,{ autoAlpha: 1 }, 0.125)
   ;
  
@@ -244,7 +244,7 @@ var cursor = {
   setupEventListeners: function () {
     var self = this;
 
-    // Ancho del hovering
+    // Anchor del hovering
     document.querySelectorAll("a").forEach(function (el) {
       el.addEventListener("mouseover", function () {
         self.CoursorColor = false;
