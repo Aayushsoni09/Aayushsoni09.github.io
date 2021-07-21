@@ -157,6 +157,7 @@ a{
     .white{
       
       width: 100%;
+      overflow-x: hidden !important;
       
     }
     body{
@@ -179,6 +180,7 @@ a{
       margin-left: -3vh;
       position: relative;
       z-index: 1000;
+      overflow-x: hidden !important;
     }
     .navbar img{
       margin-left: 1vh;
@@ -187,7 +189,7 @@ a{
       width: 100%;
       margin-top: 30%;
       right: 0;
-     
+      overflow-x: hidden !important;
       
     
     }
@@ -285,6 +287,7 @@ a{
 }
 .image__container{
   width: 100%;
+  overflow-x: hidden !important;
 }
 
 canvas{
@@ -300,6 +303,7 @@ canvas{
 
   max-width:768px ;
   height: 60vh !important;
+  overflow-x: hidden !important;
 }
 .contact__heading{
   display: flex;
@@ -311,6 +315,7 @@ footer{
   margin-top: -20vh !important;
   margin-left: -4vh !important;
   margin-right: auto !important;
+  overflow-x: hidden !important;
 }
 
 .footer__left p{
@@ -343,6 +348,7 @@ footer{
 
   height: 10vh;
   max-width: 768px;
+  overflow-x: hidden !important;
   
 }
 
@@ -418,6 +424,7 @@ margin-left: -5vh !important;
 .image-wrap{
 
   width: 400px !important;
+  overflow-x: hidden !important;
 }
 
 .image-wrap h1{
