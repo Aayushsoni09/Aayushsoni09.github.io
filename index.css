@@ -162,7 +162,7 @@ a{
     body{
      
       max-width: 768px;
-      overflow-x: hidden;
+      overflow-x: hidden !important;
       margin: 0 !important;
       padding: 0 !important;
     }
@@ -177,6 +177,7 @@ a{
     .navbar{
       margin-top: 7vh;
       margin-left: -3vh;
+      position: relative;
       z-index: 1000;
     }
     .navbar img{
