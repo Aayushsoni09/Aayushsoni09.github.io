@@ -180,7 +180,7 @@ a{
       margin-left: -3vh;
       position: relative;
       z-index: 1000;
-      overflow-x: hidden !important;
+    
     }
     .navbar img{
       margin-left: 1vh;
@@ -419,6 +419,7 @@ margin-left: -5vh !important;
 .image__container{
 
   max-width: 400px !important;
+  overflow-x: hidden !important;
 }
 
 .image-wrap{
