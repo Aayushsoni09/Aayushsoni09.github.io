@@ -157,19 +157,21 @@ a{
     .white{
       
       width: 100%;
-      border: 2px solid yellow;
+      
     }
     body{
      
       max-width: 768px;
       overflow-x: hidden;
+      margin: 0 !important;
+      padding: 0 !important;
     }
     #container{
      
       max-width: 768px;
       height: 10vh;
       margin-bottom: 10vh;
-      border: 2px solid red;
+      
       
     }
     .navbar{
@@ -409,16 +411,35 @@ margin-left: -5vh !important;
 
 .image__container{
 
-  max-width: 768px !important;
+  max-width: 400px !important;
+}
+
+.image-wrap{
+
+  width: 400px !important;
+}
+
+.image-wrap h1{
+
+  margin-left: 0vh !important;
+  font-size: 2rem !important;
 }
 
 .image__container img{
 
-  max-width: 760px !important;
+  width: 300px !important;
+  height: 400px !important;
+  margin-left: -1vh !important;
+  
 } 
 
+.cursor-dot-outline{
 
-
+  display: none !important;
+}
+.cursor-dot{
+  display: none !important;
+}
 
 
 
@@ -569,11 +590,6 @@ img{
   transform: translateY(0px);
   transition-delay: 0.7s;
 }
-
-
-
-
-
 
 
 
