@@ -17,61 +17,85 @@ function closeMenu() {
 }
 gsap.registerPlugin(ScrollTrigger)
 
-let container = document.getElementById("container");
 
-gsap.to(container, {
-  x: () => -(container.scrollWidth - document.documentElement.clientWidth) + "px",
-  ease: "none",
-  scrollTrigger: {
-    trigger: container,
-    invalidateOnRefresh: true,
-    pin: true,
-    scrub: 0.5,
-    end: () => "+=" + container.offsetWidth
+
+// Create a condition that targets viewports at least 768px wide
+const mediaQuery = window.matchMedia('(max-width: 768px)')
+
+function handleTabletChange(e) {
+  // Check if the media query is true
+  if (!(e.matches)) {
+    // Then log the following message to the console
+   
+    let container = document.getElementById("container");
+
+    gsap.to(container, {
+      x: () => -(container.scrollWidth - document.documentElement.clientWidth) + "px",
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        invalidateOnRefresh: true,
+        pin: true,
+        // pinSpacing:false,
+        scrub: 0.5,
+        end: () => "+=" + container.offsetWidth
+      }
+    })
+    gsap.to('.navbar',{
+      y:-200,
+        scrollTrigger:{
+          start:"top 2%",
+          trigger:'.navbar',
+          ease: Power2.easeOut,
+          scrub:1
+        }
+      })
+    
+    gsap.to('.top_banner_text',{
+    
+      x:2500,
+      scrollTrigger:{
+    
+        trigger:'.container',
+        scrub:1,
+        
+      }
+    
+    })
+    var text = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.container',
+        start: "top 5%",
+        pin:true,
+        scrub:1,
+        
+      },
+      defaults:{duration:0.1}
+    })
+    
+    
+    text.to('.top_banner_text', {color:'white'})
+    
+    .to({},{})
+    .to({},{})
+    .to({},{});
+    
+    
+    
+
+
+
   }
-})
-gsap.to('.navbar',{
-  y:-200,
-    scrollTrigger:{
-  
-      start:"top 2%",
-      trigger:'.navbar',
-      ease: Power2.easeOut,
-     
-      scrub:1
-    }
-  })
-
-gsap.to('.top_banner_text',{
-
-  x:2500,
-  // color:'white',
-  scrollTrigger:{
-
-    trigger:'.container',
-    scrub:1,
+  else{
     
   }
+}
 
-})
-var text = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.container',
-    start: "top 5%",
-    pin:true,
-    scrub:1,
-    
-  },
-  defaults:{duration:0.1}
-})
+// Register event listener
+mediaQuery.addListener(handleTabletChange)
 
-
-text.to('.top_banner_text', {color:'white'})
-
-.to({},{})
-.to({},{})
-.to({},{});
-
+// Initial check
+handleTabletChange(mediaQuery)
 
 
 
@@ -260,7 +284,7 @@ var cursor = {
       });
     });
 
-    // Eventos click
+    // Events click
     document.addEventListener("mousedown", function () {
       self.cursorEnlarged = true;
       self.toggleCursorSize();
@@ -271,18 +295,18 @@ var cursor = {
     });
 
     document.addEventListener("mousemove", function (e) {
-      // Mostar el cursor
+      //  cursor
       self.cursorVisible = true;
       self.toggleCursorVisibility();
 
-      // Posición de el punto
+      // Position
       self.endX = e.pageX;
       self.endY = e.pageY;
       self.$dot.style.top = self.endY + "px";
       self.$dot.style.left = self.endX + "px";
     });
 
-    // Oculta/mostrar cursor
+    //  cursor
     document.addEventListener("mouseenter", function (e) {
       self.cursorVisible = true;
       self.toggleCursorVisibility();
