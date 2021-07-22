@@ -1,9 +1,11 @@
 
 html,body{
+  
     padding:0;
     margin:0;
     background-color: black;
     box-sizing: border-box;
+    overflow-x: hidden;
   }
   @font-face {
   font-family: 'Manrope Regular';
@@ -159,19 +161,21 @@ a{
       width: 100%;
       
     }
+
     body{
      
-      max-width: 768px;
+      max-width: 768px !important;
       overflow-x: hidden !important;
       margin: 0 !important;
       padding: 0 !important;
+      
     }
     #container{
      
-      max-width: 768px;
+      max-width: 768px !important;
       height: 10vh;
       margin-bottom: 10vh;
-      
+      overflow-x: hidden !important;
       
     }
     .navbar{
@@ -179,6 +183,7 @@ a{
       margin-left: -3vh;
       position: relative;
       z-index: 1000;
+      max-width: 768px !important;
     }
     .navbar img{
       margin-left: 1vh;
@@ -264,10 +269,7 @@ a{
    width: 10%;
   
  }
- .socials{
-   margin-top: 100%;
-   margin-left: 90%;
- }
+ 
 
  .work__text{
   display:none !important;
@@ -284,7 +286,8 @@ a{
   
 }
 .image__container{
-  width: 100%;
+  max-width: 768px !important;
+  overflow: hidden !important;
 }
 
 canvas{
@@ -298,8 +301,9 @@ canvas{
 
 .contact{
 
-  max-width:768px ;
+  max-width: 768px !important;
   height: 60vh !important;
+ 
 }
 .contact__heading{
   display: flex;
@@ -325,11 +329,6 @@ footer{
   margin-bottom: 16vh;
 }
 
-.contact__left{
-
-  max-width: 768px;
-  
-}
 
 .contact__right{
   display: none !important;
@@ -342,7 +341,9 @@ footer{
 .test3{
 
   height: 10vh;
-  max-width: 768px;
+  max-width: 768px !important;
+ 
+ 
   
 }
 
@@ -410,14 +411,13 @@ margin-left: -5vh !important;
   font-size: 1.5rem !important;
 }
 
-.image__container{
 
-  max-width: 400px !important;
-}
 
 .image-wrap{
 
-  width: 400px !important;
+  width: 360px !important;
+ 
+  margin-left: -4px;
 }
 
 .image-wrap h1{
@@ -442,13 +442,38 @@ margin-left: -5vh !important;
   display: none !important;
 }
 
+.socials__mob{
+
+ display:inline-block;
+ float: right;
+
+  
+}
+
+.socials__mob a{
+
+  text-decoration: none;
+  padding-right: 15px;
+  color: black;
+  font-size: 1.9rem;
+  background-color: white;
+}
+
 
 
 }
 
 
 /* end of mobile view */
+/* desktop view */
+@media only screen and (min-width: 1024px){
 
+  .socials__mob{
+    display: none;
+  }
+
+  
+}
 
 
 #container {
@@ -500,8 +525,6 @@ margin-left: -5vh !important;
 .socials{
 
 
-  /* background-color: black; */
-  /* opacity: 0.4; */
   padding-top: 6vh;
   height: 30vh;
 }
