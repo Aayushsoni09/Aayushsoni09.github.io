@@ -356,7 +356,7 @@ footer{
 
 .text-wrap{
 
-margin-left: -5vh !important;
+margin-left: -1vh !important;
 }
 
 .sideline{
@@ -365,8 +365,8 @@ margin-left: -5vh !important;
 }
 
 .text{
-  margin-left: 0vh !important;
-  font-size: 2rem !important;
+  margin-left: -3vh !important;
+  font-size: 1.7rem !important;
 
 }
 .contact__email{
